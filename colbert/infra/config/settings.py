@@ -105,6 +105,8 @@ class ResourceSettings:
     queries: str = DefaultVal(None)
     index_name: str = DefaultVal(None)
 
+    trust_remote_code: bool = DefaultVal(False)
+
 
 @dataclass
 class DocSettings:

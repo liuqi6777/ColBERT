@@ -9,7 +9,7 @@ from colbert.parameters import DEVICE
 
 class DocTokenizer():
     def __init__(self, config: ColBERTConfig):
-        HF_ColBERT = class_factory(config.checkpoint)
+        HF_ColBERT = class_factory(config.checkpoint, config.trust_remote_code)
         self.tok = HF_ColBERT.raw_tokenizer_from_pretrained(config.checkpoint)
 
         self.config = config

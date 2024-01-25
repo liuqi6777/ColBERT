@@ -25,10 +25,10 @@ class BaseColBERT(torch.nn.Module):
         self.name = self.colbert_config.model_name or name_or_path
 
         try:
-            HF_ColBERT = class_factory(self.name)
+            HF_ColBERT = class_factory(self.name, self.colbert_config.trust_remote_code)
         except:
             self.name = 'bert-base-uncased' # TODO: Double check that this is appropriate here in all cases
-            HF_ColBERT = class_factory(self.name)
+            HF_ColBERT = class_factory(self.name, self.colbert_config.trust_remote_code)
 
         # assert self.name is not None
         # HF_ColBERT = class_factory(self.name)
